@@ -1,23 +1,18 @@
 import sqlalchemy
 from sqlalchemy import text
 
-# Replace these placeholders with your actual database connection details
 username = 'root'
 password = '2521SunduS!'
 host = 'localhost'
-port = '3306'  # Replace with the actual port number
+port = '3306'  
 database_name = 'bookstore_pos_system'
 
-# Create the database connection string
 connection_string = f'mysql+mysqlconnector://{username}:{password}@{host}:{port}/{database_name}'
 
-# Create the engine
 engine = sqlalchemy.create_engine(connection_string)
 
-# Create a connection
 connection = engine.connect()
 
-# a. Schema generation query (Creating tables)
 schema_queries = [
     """
     CREATE TABLE IF NOT EXISTS `bookstore_pos_system`.`customer` (
@@ -62,11 +57,9 @@ schema_queries = [
     """
 ]
 
-# Execute schema generation queries
 for query in schema_queries:
     connection.execute(text(query))
 
-# b. SQL query for number of customers purchasing more than 5 books
 query_b = """
     SELECT
         customers.id,
@@ -88,7 +81,6 @@ print("\nResult for b. Number of customers purchasing more than 5 books:")
 for row in result_b:
     print(row)
 
-# c. SQL query for a list of customers who never purchased anything
 query_c = """
     SELECT
         customers.id,
@@ -107,7 +99,6 @@ print("\nResult for c. List of customers who never purchased anything:")
 for row in result_c:
     print(row)
 
-# d. SQL query for a list of books purchased with the users
 query_d = """
     SELECT
         customers.id AS customer_id,
@@ -128,5 +119,4 @@ print("\nResult for d. List of books purchased with the users:")
 for row in result_d:
     print(row)
 
-# Close the connection
 connection.close()
