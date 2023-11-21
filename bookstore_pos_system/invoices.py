@@ -32,7 +32,6 @@ def save_to_csv(column_names, data, csv_filename):
     print(f'Data saved to {csv_filename}')
 
 if __name__ == "__main__":
-    # Replace placeholders with your MySQL connection details
     host = 'localhost'
     user = 'root'
     password = '2521SunduS!'
