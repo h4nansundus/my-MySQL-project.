@@ -38,7 +38,7 @@ if __name__ == "__main__":
     database = 'bookstore_pos_system'
     table_name = 'customers'
     
-    csv_filename = 'customers.csv'  # Specify the desired CSV filename
+    csv_filename = 'customers.csv' 
 
     connection = mysql.connector.connect(host=host, user=user, password=password, database=database)
     cursor = connection.cursor()
